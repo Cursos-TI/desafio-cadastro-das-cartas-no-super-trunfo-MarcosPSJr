@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-// Desafio Super Trunfo - Países
+// Desafio Super Trunfo - Cidades
 int main() {  
 
     //Declarando as variáveis
@@ -13,7 +13,7 @@ int main() {
     
     
 
-    printf("---- Bem vindo ao Super Trunfo - Países! ---- \n\n"); //Mensagem de boas vindas
+    printf("---- Bem vindo ao Super Trunfo - Cidades! ---- \n\n"); //Mensagem de boas vindas
 
     printf("-- Cadastro das Cartas --\n\n"); //informe de cadastro das cartas
 
