@@ -6,10 +6,12 @@ int main() {
     //Declarando as variáveis
     char estado1[100],estado2[100];
     char cidade1[100],cidade2[100];
-    int populacao1,populacao2,pontos_turisticos1,pontos_turisticos2;
+    unsigned long int populacao1,populacao2;
+    int pontos_turisticos1,pontos_turisticos2;
     float area1,area2,densidade_populacional1,densidade_populacional2;
     float pib1,pib2,pibpercapita1,pibpercapita2;
     char codigo1[10],codigo2[10];
+    int superpoder1,superpoder2, resultado, resultado_densidade;
     
     
 
@@ -25,13 +27,12 @@ int main() {
     //Aqui foi usado o "&99s" para limitar o uso de caracteres, no caso aqui o char[100] então o limitar é 99
     //O especificador %s no scanf, sem um limitador de largura, pode causar: 
     //Um estouro de buffer (buffer overflow) se o usuário digitar mais caracteres do que o array pode armazenar
-    //Apenas por segurança :)
 
     printf("Digite a cidade (Cidade sem espaço, ex: Fortaleza): ");
     scanf("%99s",cidade1);
 
     printf("Digite a população total da cidade (Inteiro sem pontos): ");
-    scanf("%d",&populacao1);
+    scanf("%lu",&populacao1);
 
     printf("Digite a área total da cidade: ");
     scanf("%f",&area1);
@@ -57,7 +58,7 @@ int main() {
     scanf("%99s",cidade2);
 
     printf("Digite a população total da cidade (Inteiro sem pontos): ");
-    scanf("%d",&populacao2);
+    scanf("%lu",&populacao2);
 
     printf("Digite a área total da cidade: ");
     scanf("%f",&area2);
@@ -79,29 +80,50 @@ int main() {
     pibpercapita1 = (pib1 * 1000000000.0f) / populacao1;
     pibpercapita2 = (pib2 * 1000000000.0f) / populacao2;
 
+    //Operação de soma para calcular o Super Poder das Cartas
+    superpoder1 = populacao1 + area1 + pib1 + pontos_turisticos1;
+
+    superpoder2 = populacao2 + area2 + pib2 + pontos_turisticos2;
+    
     //imprime na tela as duas cartas cadastradas, contendo a saída de dados e resultados das operações
     printf("Carta 1\n");
     printf("Estado: %s\n",estado1);
     printf("Nome da Cidade: %s\n",cidade1);
-    printf("População: %d\n",populacao1);
+    printf("População: %lu\n",populacao1);
     printf("Área Total: %.2fKm²\n",area1);
     printf("PIB: %.2f Bilhões\n",pib1);
     printf("Pontos Turísticos: %d\n",pontos_turisticos1);
     printf("Código: %s\n",codigo1);
     printf("Densidade Populacional: %.2f hab/km²\n",densidade_populacional1);
-    printf("PIB per Capita: %.2f Reais\n\n",pibpercapita1);
+    printf("PIB per Capita: %.2f Reais\n",pibpercapita1);
+    printf("Super Poder : %d\n\n", superpoder1);
 
     printf("Carta 2\n");
     printf("Estado: %s\n",estado2);
     printf("Nome da Cidade: %s\n",cidade2);
-    printf("População: %d\n",populacao2);
+    printf("População: %lu\n",populacao2);
     printf("Área Total: %.2fKm²\n",area2);
     printf("PIB: %.2f Bilhões\n",pib2);
     printf("Pontos Turísticos: %d\n",pontos_turisticos2);
     printf("Código: %s\n",codigo2);
     printf("Densidade Populacional: %.2f hab/km²\n",densidade_populacional2);
-    printf("PIB per Capita: %.2f Reais\n\n",pibpercapita2);
+    printf("PIB per Capita: %.2f Reais\n",pibpercapita2);
+    printf("Super Poder : %d\n\n", superpoder2);
 
+
+    resultado = superpoder1 > superpoder2; //Faz a comparação se o Super Poder da Carta 1 é maior do que a Carta 2
+
+    resultado_densidade = densidade_populacional1 < densidade_populacional2; //Faz a comparação se a Densidade Populacional da Carta 1 é menor do que a Carta 2
+
+    //informa o resultado
+    printf("---- Resultado ----\n\n");
+    printf("A Carta 1 é representada pelo número 1\n");
+    printf("A Carta 2 é representada pelo número 0\n\n");
+
+    printf("A carta %d venceu por ser a mais forte!\n", resultado);
+    printf("A carta %d venceu por ter a menor densidade populacional!\n\n", resultado_densidade);
+
+    
 
     return 0;
 }
