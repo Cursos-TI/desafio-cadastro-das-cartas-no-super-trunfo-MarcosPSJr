@@ -110,18 +110,21 @@ int main() {
     printf("PIB per Capita: %.2f Reais\n",pibpercapita2);
     printf("Super Poder : %d\n\n", superpoder2);
 
+    printf("Comparação das Cartas (Atributo Maior : População):\n\n");
 
-    resultado = superpoder1 > superpoder2; //Faz a comparação se o Super Poder da Carta 1 é maior do que a Carta 2
+    if (populacao1 > populacao2){
+        printf("A Carta 1 Venceu!\n\n");
+    } else {
+        printf("A Carta 2 Venceu!\n\n");
+    }
 
-    resultado_densidade = densidade_populacional1 < densidade_populacional2; //Faz a comparação se a Densidade Populacional da Carta 1 é menor do que a Carta 2
+    printf("Comparação das Cartas (Atributo Menor : Densidade Populacional):\n\n");
 
-    //informa o resultado
-    printf("---- Resultado ----\n\n");
-    printf("A Carta 1 é representada pelo número 1\n");
-    printf("A Carta 2 é representada pelo número 0\n\n");
-
-    printf("A carta %d venceu por ser a mais forte!\n", resultado);
-    printf("A carta %d venceu por ter a menor densidade populacional!\n\n", resultado_densidade);
+    if (densidade_populacional1 < densidade_populacional2){
+        printf("A Carta 1 Venceu!\n\n");
+    } else {
+       printf("A Carta 2 Venceu!\n\n"); 
+    }
 
     
 
